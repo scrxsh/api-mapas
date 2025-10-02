@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Mapa desde backend</title>
-    <link rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h2>Buscar ubicación</h2>
-    <input type="text" id="query" placeholder="Ej: Chiquinquirá">
-    <button onclick="buscar()">Buscar</button>
-    <div id="map" style="height:400px;margin-top:10px;"></div>
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen p-6">
+    <h2 class="text-4xl font-medium text-gray-700 mb-6 drop-shadow-lg">Mapa de Chiquinquirá con picos de contagio
+    </h2>
+    <div id="map" class="w-full max-w-5xl h-[600px] rounded-xl shadow-2xl border-4 border-green-800"></div>
     <script src="script.js"></script>
 </body>
 </html>
+

@@ -6,6 +6,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 @RestController
 @RequestMapping("api/geo")
@@ -29,6 +32,28 @@ public class GeoController {
             return ResponseEntity.status(500)
                     .body("{\"error\":\"" + e.getMessage() + "\"}");
         }
+    }
+
+    @GetMapping("/heatmap")
+    public ResponseEntity<List<double[]>> obtenerMapaCalor(){
+
+        List<double[]> puntosInfeccion = new ArrayList<>();
+
+        Random random = new Random();
+        
+        double latChq = 5.617;
+        double lonChq = -73.817;
+
+        for (int i = 0; i < 250; i++) {
+            double lat = latChq + (random.nextDouble() - 0.5) * 0.026;
+            double lon = lonChq + (random.nextDouble() - 0.5) * 0.026;
+            double intensidad = 0.4 + (random.nextDouble() * 0.9);
+
+            puntosInfeccion.add(new double[]{lat, lon, intensidad});
+        }
+        
+        return ResponseEntity.ok(puntosInfeccion);
+        
     }
     
 }
